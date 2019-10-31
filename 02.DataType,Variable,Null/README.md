@@ -22,3 +22,19 @@
  - toByte(), toInt(), toShort(), toLong(), toFloat(), toDouble()
  - (형 변환은 아닌) toChar(), toString()
 
+
+## 2. Smart & Safe Cast
+
+#### 1. is type check & smart cast
+ - is 타입 체크 이후 판단에 따른 context에서의 타입 자동 변환 사용
+
+#### 2. unsafe cast
+ - as 연산자를 통한 캐스트
+
+#### 3. exception
+ - ClassCastException 예외 발생
+
+#### 4. safe cast
+ - as? 타입 캐스팅 할 수 없어도 예외를 발생시키지 않고, null을 돌려주는 안전한 nullable type cast 연산자
+
+
