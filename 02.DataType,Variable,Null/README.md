@@ -23,6 +23,7 @@
  - (형 변환은 아닌) toChar(), toString()
 
 
+
 ## 2. Smart & Safe Cast
 
 #### 1. is type check & smart cast
@@ -36,5 +37,12 @@
 
 #### 4. safe cast
  - as? 타입 캐스팅 할 수 없어도 예외를 발생시키지 않고, null을 돌려주는 안전한 nullable type cast 연산자
+
+
+
+## 3. Nullable, Exception & Null Safety
+#### 1. null safety
+ - 널 안전성, 널 체크 if(x != null)
+ - ?. safe call,  as? safe cast,  ?: elvise operator
 
 
