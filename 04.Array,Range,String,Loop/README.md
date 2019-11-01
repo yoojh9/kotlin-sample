@@ -13,7 +13,7 @@
 
 #### 4. Array init
  - <T> 타입 파라미터(Generic), 함수 인자(람다식), 팩토리 함수를 통한 배열 요소 초기화
-
+ - Array(n,{}), Array<T>(n,{}), arrayOf(), arrayOf<T>(), arrayOfNulls()
 ##### 5. Array Builder Classes
  - 배열 빌더 클래스
  - ByteArray, ShortArray, IntArray, LongArray, FloatArray, DoubleArray, BooleanArray, CharArray
