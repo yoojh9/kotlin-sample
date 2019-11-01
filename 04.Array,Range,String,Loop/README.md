@@ -25,3 +25,22 @@
 
 
 ## 2. For Loop & Index
+#### 1. Array Builder Classes
+ - 일반 Array 클래스와 구성이 같음. 편리성을 위해서 각 타입별로 만들어져 동일하게 동작하는 typed arrays
+
+#### 2. index
+ - 순서번호 [], lastIndex(size-1), first(), last()
+
+#### 3. for(x in XYZ) loop
+ - iteration on Array
+ - 순차적으로 배열 요소 x에 할당하여ㅕ 루프 실행을 반복<반복문>
+
+#### 4. for(i in XYZ indices) loop
+ - Array.indices, s..e, 정수 범위, zero-based 기반
+
+#### 5. for( (i,x) in XYZ.withIndex() ) loop
+ - Array.withIndex()
+ - 순서번호와 요소값이 동시에 한 단위로 묶여서 차례로 루프에 전달됨
+
+#### 6. StdLib functions
+ - sum(), average(), fill(), filter{}, find{}, joinToString()
