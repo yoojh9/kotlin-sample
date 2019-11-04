@@ -33,9 +33,9 @@
 
 #### 3. for(x in XYZ) loop
  - iteration on Array
- - 순차적으로 배열 요소 x에 할당하여ㅕ 루프 실행을 반복<반복문>
+ - 순차적으로 배열 요소 x에 할당하여 루프 실행을 반복<반복문>
 
-#### 4. for(i in XYZ indices) loop
+#### 4. for(i in XYZ.indices) loop
  - Array.indices, s..e, 정수 범위, zero-based 기반
 
 #### 5. for( (i,x) in XYZ.withIndex() ) loop
@@ -44,3 +44,27 @@
 
 #### 6. StdLib functions
  - sum(), average(), fill(), filter{}, find{}, joinToString()
+
+
+## 3. Range
+#### 1. Range
+ - RangeTo(), start..end, 비교 가능한 값들이 나열된 유한 구간
+ - 일반적으로 상하 경계값 포함
+
+#### 2. IntRange, LongRange, CharRange
+ - 타입별 범위 빌더 클래스
+
+#### 3. first, last
+ - 범위의 처음과 끝
+
+#### 4. rangeTo(), until(), downTo()
+ - 범위의 방향과 끝경계 포함문제
+ - 100 until 200 => 100..200-1
+
+#### 5. step()
+ - 범위 안에서 건너뛰는 오프셋 양
+
+#### 6. in, !in, contains()
+ - 범위 내 포함/비포함 관계
+
+#### 7. withIndex(), joinToString(), filter(), sum(), average()
