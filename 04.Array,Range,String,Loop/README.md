@@ -68,3 +68,18 @@
  - 범위 내 포함/비포함 관계
 
 #### 7. withIndex(), joinToString(), filter(), sum(), average()
+
+
+## 4. While / Do ~ While Loop
+#### 1. While loop
+ - 조건식이 만족하는 동안 문장/블록을 계속 실행하는 반복문
+ - while(expr){...}
+ - while(true), while(false)
+
+#### 2. do ~ while loop
+ - 적어도 1번의 문장/블록 실행은 보장하는 while 반복문
+ - do {...} while(expr)
+
+#### 3. Prime Number
+ - 소수 판단
+ - 1과 자기 자신 이외는 약수가 없음
