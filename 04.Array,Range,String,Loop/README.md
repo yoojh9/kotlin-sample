@@ -83,3 +83,17 @@
 #### 3. Prime Number
  - 소수 판단
  - 1과 자기 자신 이외는 약수가 없음
+
+
+## 5. String & 2D Arrays
+#### 1. String과 CharArray
+ - 문자열 클래스, 문자 배열 빌더 클래스
+ - toCharArray()를 통한 변환
+
+#### 2. 2-Dimension Array
+ - 2차원 배열; 배열의 배열, 즉 배열들을 요소로 가지는 배열
+ - m행 n열 2차원 배열
+    - Array(m){ oooArray(n) }     // m x n
+    - Array(m){ oooArray(n, {init} )}   // 요소값 초기화, ***ArrayOf(...)
+ - args, Array<String> : arrayOf<String>, Array<Array<Char>>
+ - [][]: StrArray[m][n], 문자열 배열의 m번째 요소(문자열)의 n번째 문자 값
