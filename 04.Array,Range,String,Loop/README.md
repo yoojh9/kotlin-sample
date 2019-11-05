@@ -97,3 +97,22 @@
     - Array(m){ oooArray(n, {init} )}   // 요소값 초기화, ***ArrayOf(...)
  - args, Array<String> : arrayOf<String>, Array<Array<Char>>
  - [][]: StrArray[m][n], 문자열 배열의 m번째 요소(문자열)의 n번째 문자 값
+
+
+## 6. Loop Control : Break & Continue
+#### 1. break
+ - 현재 문맥에서 최근접 루프를 즉시 멈추고 빠져나옴
+ - return: 함수 내에서 사용, 리턴값이 있으면 해당 타입으로 되돌리며 즉시 함수 종료 처리함
+
+#### 2. continue
+ - 현재 반복 루프 차례의 나머지 문장들을 실행하지 않고, 다음 반복 차례의 처음 문장으로 시랭을 옮김(새로운 인덱스, 요소 동반)
+
+#### 3. Leap Year: 윤년 판단 알고리즘 (그레고리력)
+ - 1. 서력 기원 연수가 4로 나누어 떨어지는 해는 윤년으로 한다 (1988, 1992, 1996, 2004, 2008, 2012..)
+ - 2. 이 중에서 100으로 나누어 떨어지는 해는 평년으로 한다 (1900, 2100, 2200, 2300, 2500..)
+ - 3. 그 중에 400으로 나누어 떨어지는 해는 윤년으로 둔다 (1600, 2000, 2400)
+ - if (year is not divisible by 4 ) then (it is a common year)
+   else if (year is not divisible by 100) then (it is a leap year)
+   else if (year is not divisible by 400) then (it is a common year)
+   else (it is a leap year)
+
