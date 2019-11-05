@@ -118,4 +118,21 @@
 
 
 ## 7. Nested Loops & Labels
+#### 1. Nested Loop
+ - 반복문 안쪽의 또 반복문
+ - for() { for() {} }
+ - for() { while() {} }
+ - while() { for() {} }
+ - do { for() } while()
 
+#### 2. Label
+ - 레이블(이름표) : 특정 위치에 붙여진 이름
+ - label@ 
+ - abc@ while() ...
+ - xyz@ for() ...
+
+#### 3. break@label
+ - 레이블의 루프를 빠져나옴
+
+#### 4. continue@label
+ - 레이블의 루프의 다음 차례로 실행을 옮김
