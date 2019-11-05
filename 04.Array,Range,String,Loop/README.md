@@ -111,9 +111,9 @@
  - 1. 서력 기원 연수가 4로 나누어 떨어지는 해는 윤년으로 한다 (1988, 1992, 1996, 2004, 2008, 2012..)
  - 2. 이 중에서 100으로 나누어 떨어지는 해는 평년으로 한다 (1900, 2100, 2200, 2300, 2500..)
  - 3. 그 중에 400으로 나누어 떨어지는 해는 윤년으로 둔다 (1600, 2000, 2400)
- - if (year is not divisible by 4 ) then (it is a common year)
-   else if (year is not divisible by 100) then (it is a leap year)
-   else if (year is not divisible by 400) then (it is a common year)
+ - if (year is not divisible by 4 ) then (it is a common year) \n
+   else if (year is not divisible by 100) then (it is a leap year) \n
+   else if (year is not divisible by 400) then (it is a common year) \n
    else (it is a leap year)
 
 
