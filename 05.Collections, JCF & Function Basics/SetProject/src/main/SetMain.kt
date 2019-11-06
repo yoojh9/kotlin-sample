@@ -5,7 +5,7 @@ package main
   - 중복 허용 안함
   - 순서 유지 언됨
 
- List
+ List : ordered & duplicated
   - 중복 허용
   - 순서 유지
  */

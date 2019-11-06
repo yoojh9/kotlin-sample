@@ -26,3 +26,24 @@
 
 #### 6. operations
  - containsAll(), intersect, union, subtract
+
+
+
+## 2. List
+#### 1. List
+ - 리스트, 데이터 구조, Enumeration in countable, JVM Collection Framework
+    - ordered: 일반적으로 요소의 순서가 있으며(요소 추가 시 순서가 보존) => index, 정렬의 묹
+    - duplicated: 요소들간의 중복을 허용함 => distinct().sorted()
+    - 응용구조: Stack, Queue, LinkedList
+
+#### 2. Array & List
+ - 배열도 일종의 리스트에 속함
+
+#### 3. List<out E> vs MutableList<E>
+ - listOf(), mutableListOf()
+    - get(), [], size, indexOf(), lastIndexOf(), subList(), toMutableList()
+    - add(), add(i,E), set(), remove(), clear(), withIndex()
+
+#### 4. sorting
+ - sorted(), sortedBy{}, sortedByDescending{},...
+ 
