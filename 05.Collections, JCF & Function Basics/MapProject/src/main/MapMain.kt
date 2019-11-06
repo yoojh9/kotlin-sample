@@ -69,10 +69,3 @@ fun insertNewEmailToMemberBook(email: String?, mbBook: MutableMap<String, String
 
     mbBook.put(key, value)
 }
-
-
-
-
-
-
-
