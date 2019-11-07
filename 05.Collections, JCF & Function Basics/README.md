@@ -36,8 +36,6 @@
 
 - containsAll(), intersect, union, subtract
 
-
-
 ## 2. List
 
 #### 1. List
@@ -60,7 +58,6 @@
 #### 4. sorting
 
 - sorted(), sortedBy{}, sortedByDescending{},...
-
 
 ## 3. Map
 
@@ -85,23 +82,61 @@
 
 - mutableMapOf(...), put(), remove(), clear(),...
 
-
-
 ## 4. JVM Collections & CRUD
+
 #### 1. Java Collection Framework 구현체 클래스들
- - JVM 구현체를 그대로 사용, 성능, 편의, CRUD가 적용
- - ex) publc typealias ArrayList<E> = java.util.ArrayList<E>
+
+- JVM 구현체를 그대로 사용, 성능, 편의, CRUD가 적용
+- ex) publc typealias ArrayList<E> = java.util.ArrayList<E>
 
 #### 2. kotlin.collections.HashSet
- - HashSet<E> = hashSetOf()
+
+- HashSet<E> = hashSetOf()
 
 #### 3. kotlin.collections.ArrayList
- - ArrayList<E> = arrayListOf()
+
+- ArrayList<E> = arrayListOf()
 
 #### 4. kotlin.collections.HashMap
- - HashMap<K,V> = hashMapOf()
+
+- HashMap<K,V> = hashMapOf()
 
 #### 5. CRUD operations
- - Creation, Read(Retrieval), Update, Delete(Destroy)
- - 데이터를 조작할 수 있는 최소 연산, 자료구조, DB SQL DML, Web HTTP methods
 
+- Creation, Read(Retrieval), Update, Delete(Destroy)
+- 데이터를 조작할 수 있는 최소 연산, 자료구조, DB SQL DML, Web HTTP methods
+
+## 4. Function: Overloading, Default, Named, Single Expression Body
+
+#### 1. Function Basics
+
+- 공통, 반복적으로 사용되는 명령/문장들을 묶어서 하나의 기능으로 동작
+  - input(데이터) => 블랙박스(함수) => output(결과)
+  - Function Definition(함수 정의) & Function Call(함수 호출)
+
+#### 2. Single expression body Function
+
+- 단일 식을 결과로 리턴하는 함수 =로 축약 표현 가능
+
+#### 3. Default Argument
+
+- 기본인자
+- 함수의 파라미터의 기본값을 =로 각각 지정함
+
+#### 4. Named Parameter
+
+- 함수 호출 시 원하는 파라미터들만의 이름을 명시하여 인자값을 넘겨줌
+
+#### 5. Function Overloading
+
+- 다형성의 한 예
+- 코틀린에서는 기본인자, named param과 같이 쓰임
+  - 일반적으로 함수 호출 시 호출 인자의 타입, 개수 등에 따라 같은 이름으로 미리 정의된 여러 바디의 함수들을 동적으로 선택하여 호출하는 방식을 의미함
+
+```
+fun 함수이름(param이름: type, ...): Unit or 생략 or 타입x
+{
+    문장블록, 함수바디
+    return X
+}
+```
