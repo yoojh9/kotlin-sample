@@ -140,3 +140,29 @@ fun 함수이름(param이름: type, ...): Unit or 생략 or 타입x
     return X
 }
 ```
+
+## 5. Function: Variable Arguments & View
+
+#### 1. Variable Arguments
+
+- 가변인자
+- 함수 인자의 개수가 제한 없이 가변적인 것
+
+#### 2. vararg 제한자
+
+- 보통 함수의 마지막 인자 대상으로 하며, 오직 한개의 인자만 가변인자가 될 수 있음
+- 인자 개수가 가변인 Array<out T> 타입으로 지정해줌
+- asList(), sum(), average(), get[], size, ... 함수 사용 가능
+
+#### 3. Spread operator
+
+- 펼침 연산자
+
+```
+fun OOO (a, b, c, *array_name, d, e, f, ...)
+```
+
+#### 4. View
+
+- 뷰
+- 흔히 내부에서 보호되는, 가변 컬렉션을 데이터의 소스(mutable)로 보고 외부로 공개되는 불변 컬렉션을 읽기 전용(read-only, immutable) 뷰로서 지정하는 패턴
