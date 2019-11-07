@@ -36,6 +36,8 @@
 
 - containsAll(), intersect, union, subtract
 
+
+
 ## 2. List
 
 #### 1. List
@@ -59,6 +61,7 @@
 
 - sorted(), sortedBy{}, sortedByDescending{},...
 
+
 ## 3. Map
 
 #### 1. Map, Dictionary, Hash
@@ -81,3 +84,23 @@
 #### 4. MutableMap
 
 - mutableMapOf(...), put(), remove(), clear(),...
+
+
+
+## 4. JVM Collections & CRUD
+#### 1. Java Collection Framework 구현체 클래스들
+ - JVM 구현체를 그대로 사용, 성능, 편의, CRUD가 적용
+ - ex) publc typealias ArrayList<E> = java.util.ArrayList<E>
+
+#### 2. kotlin.collections.HashSet
+ - HashSet<E> = hashSetOf()
+
+#### 3. kotlin.collections.ArrayList
+ - ArrayList<E> = arrayListOf()
+
+#### 4. kotlin.collections.HashMap
+ - HashMap<K,V> = hashMapOf()
+
+#### 5. CRUD operations
+ - Creation, Read(Retrieval), Update, Delete(Destroy)
+
