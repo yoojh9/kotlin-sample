@@ -103,4 +103,5 @@
 
 #### 5. CRUD operations
  - Creation, Read(Retrieval), Update, Delete(Destroy)
+ - 데이터를 조작할 수 있는 최소 연산, 자료구조, DB SQL DML, Web HTTP methods
 
