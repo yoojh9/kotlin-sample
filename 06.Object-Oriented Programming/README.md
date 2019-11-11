@@ -59,3 +59,34 @@ class Student(name: String, val age: Int = 20)
 #### 3. value-parameter
 
 - val, var가 없어서 프로퍼티나 필드가 아니고 단지 init{} 블록이나 필드/프로퍼티의 초기화에서만 바로 사용되는 값을 담은 인자
+
+## 3. init block, secondary constructors
+
+#### 1. init block
+
+- 주요 생성자의 value-parameter나 프로퍼티 파라미터를 사용하여 초기화
+
+```
+init {
+    초기화 코드
+}
+```
+
+#### 2. secondary constructors
+
+- 2차 생성자를 한 개 이상 더 정의할 수 있음
+- 주요 생성자 / 다른 2차 생성자를 호출하여 초기화를 위임할 수 있음
+
+```
+class Professor(var name: String){
+    constructor(_name: String, _age: Int): this(_name){
+        age = _age
+    }
+
+    constructor(_name: String, _age: Int, _major: String, fav: Double) : this(_name, _age) {
+        major = _major
+        this.fav = fav
+    }
+}
+
+```
