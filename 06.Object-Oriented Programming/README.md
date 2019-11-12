@@ -90,3 +90,19 @@ class Professor(var name: String){
 }
 
 ```
+
+## 4. Getters, Setters & Backing Field
+
+#### 1. getters & setters
+
+- 기본적으로 프로퍼티에 대한 val 읽기
+- var 읽기/쓰기 메소드들을 제공
+- custom getter/setter 메소드들로 각각 갱신 정의 가능
+
+```
+var <propertyName>[:<propertyType>] [=<property_initializer>]
+    [<getter>]
+    [<setter>] // 인자 이름으로 value를 주로 사용
+```
+
+- field: 커스텀 getter/setter 메소드 내에서 필드 그 자체를 나타내는 백킹 필드 키워드
