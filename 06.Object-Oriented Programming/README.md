@@ -105,4 +105,8 @@ var <propertyName>[:<propertyType>] [=<property_initializer>]
     [<setter>] // 인자 이름으로 value를 주로 사용
 ```
 
-- field: 커스텀 getter/setter 메소드 내에서 필드 그 자체를 나타내는 백킹 필드 키워드
+#### 2. field
+
+- 커스텀 getter/setter 메소드 내에서 필드 그 자체를 나타내는 백킹 필드 키워드
+
+## 5. Visibility Modifier
