@@ -110,3 +110,49 @@ var <propertyName>[:<propertyType>] [=<property_initializer>]
 - 커스텀 getter/setter 메소드 내에서 필드 그 자체를 나타내는 백킹 필드 키워드
 
 ## 5. Visibility Modifier
+
+#### 1. Visibility
+
+- private, protected(상속), internal(모듈 기준), public(기본)
+- classes, objects, interfaces, constructors, functions, properties and setters (getters => same as property's)
+
+#### 2. declaring scopes
+
+- package., class. function(local),...
+
+#### 3. 'top-level' declaration & import
+
+- package level
+- functions, properties and classes, objects and interfaces
+- only visible with private, internal, public(기본)
+
+## 6. import, class parameter, let() & with()
+
+#### 1. import
+
+- import A.\*를 통해 패키지에서 보이는 탑레벨 선언 요소들을 접근하여 사용할 수 있음
+- 클래스 혹은 패키지 함수만을 지정해서 임포트 할 수도 있음
+
+#### 2. custom class parameter
+
+- 커스텀 클래스의 객체를 인자로 받아서 사용하려면, 객체의 초기화 상태나 nullablily를 잘 체크한 뒤에 사용하여야 함
+
+#### 3. let()
+
+- 객체와 함께 safe call로 자주 불리며 사용되는 편리 함수
+- 객체 자체가 인자로
+- 객체?.let{ X it }
+- 객체?.let{ X it } ?: Y
+
+```
+public inline fun<T,R> T.let(block: (T) -> R):R = block(this)
+```
+
+#### 4. with()
+
+- 객체 자체의 this 문맥 하의 블록에서 객체를 빠르게 조작할 수 있는 편리함수
+- with(객체){ X(this 생략 필드, 멤버 바로 접근)}
+
+```
+public inline fun<T,R> with(receiver: T, block: T.() -> R): R = receiver.block()
+```

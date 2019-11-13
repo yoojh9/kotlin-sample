@@ -14,11 +14,11 @@ fun getCode2(pre: String?, len: Int?) = Code(pre ?: "", len ?: 8)._c
 
 /**
  * internal : 모듈 안에서 사용 가능
-    - 모듈
-        - an intelliJ Idea module
-        - a maven project
-        - a gradle source set
-        - a set of files compiled with one invocation of the ant task
+- 모듈
+- an intelliJ Idea module
+- a maven project
+- a gradle source set
+- a set of files compiled with one invocation of the ant task
  * protected: 부모 자식 클래스 안에서 사용
  */
 internal fun getLicenseKey(lcpre: String? = "", count: Int = 4) : String {
@@ -27,6 +27,20 @@ internal fun getLicenseKey(lcpre: String? = "", count: Int = 4) : String {
         str += getCode("", 8)
     }
     return lcpre + str
+}
+
+internal class LicenseKey(var issuedBy: String? = null,
+                          var description: String? = null,
+                          var issuedNumber: Int = 0,
+                          var words: Int = 4) {
+    var key: String? = null
+        private set
+    var issuedWhen: java.util.Date? = null
+
+    // 이 함수를 통하지 않고서는 밖에서 key 값을 set 할 수 없음.
+    fun generate() {
+        this.key = getLicenseKey(issuedBy ?: "tester", words )
+    }
 }
 
 
