@@ -156,3 +156,20 @@ public inline fun<T,R> T.let(block: (T) -> R):R = block(this)
 ```
 public inline fun<T,R> with(receiver: T, block: T.() -> R): R = receiver.block()
 ```
+
+## 7. Inheritance, Super & UML
+
+#### 1. Inheritance
+
+- 상속 => 재활용성과 구조화된 설계
+
+  - open class Parent
+  - class Child: Parent
+  - kotlin.Any: 최상위 클래스, top root of the kotlin class hierachy(toString, hashCode, Equals)
+  - super vs this : 상위 객체 접근 super, 객체 자기 자신 접근 this
+
+  ```
+  open SuperClass(parent)
+
+  subclass(derived, child) : superclass(parent)
+  ```
