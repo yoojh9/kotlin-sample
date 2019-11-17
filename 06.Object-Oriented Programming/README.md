@@ -168,8 +168,19 @@ public inline fun<T,R> with(receiver: T, block: T.() -> R): R = receiver.block()
   - kotlin.Any: 최상위 클래스, top root of the kotlin class hierachy(toString, hashCode, Equals)
   - super vs this : 상위 객체 접근 super, 객체 자기 자신 접근 this
 
-  ```
+```
   open SuperClass(parent)
 
   subclass(derived, child) : superclass(parent)
-  ```
+```
+
+## 8. override, open & final
+
+#### 1. overriding
+
+- 오버라이딩(재정의), 기존(부모)의 기능을 원형 선언을 유지한 상태에서 구현, 변경 혹은 확장으로 재정의 하는 것
+  - open/override: 상속을 통하여 함수나 프로퍼티를 재정의 할 수 있음
+  - final: 오버라이드된 함수나 프로퍼티는 기본이 open이라 final을 사용하면 이를 최종으로 만들어서 더 이상의 재정의를 금지시킬 수 있음
+  - private 가시성을 가진 멤버는 override 할 수 없음
+- override fun: 함수(메소드) 재정의, 이름/인자타입/리턴타입 등이 보존
+- override property: 프로퍼티 재정의, 이름/타입 보존, val => var로 재정의 가능

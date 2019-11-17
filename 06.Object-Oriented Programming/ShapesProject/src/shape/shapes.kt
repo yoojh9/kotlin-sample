@@ -17,8 +17,11 @@ open class MyShape(val type: String ? = null) {
     var name: String? = null
     var color: String = BLACK
 
-    // 공통 클래스
-    fun showStatus(){
+    /**
+     * 코틀린의 모든 함수는 기본적으로 final이기 때문에 이 함수의 재정의를 열어 두려면
+     * 'open'이라는 키워드를 사용해야 함
+     */
+    open fun showStatus(){
         println("""
             |*Shape*
             |이름: $name
