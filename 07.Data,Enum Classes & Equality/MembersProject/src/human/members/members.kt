@@ -87,6 +87,11 @@ class Member() { // : Any
 // 프리미엄 회원 유무
 // 활동 포인트
 fun main(args: Array<String>) {
+
+    /**
+     * 7-1.
+     */
+    println()
     val humanMembers = arrayListOf<Member>(
         Member(), Member("홍길동",22,"hong","1111")
     )

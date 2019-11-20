@@ -29,3 +29,24 @@
 
 - 객체를 복제(clone)함
 - 일부 필드를 변경하여 복제도 가능
+
+## 2. Data class & Tuples
+
+#### 1. tuples
+
+- Pair(1, "sea"), Triple("ABC",3.14,'Z'),...
+
+#### 2. data class
+
+- pure DTO
+
+```
+ data class Human(val name: String, var age: Int = 20)
+```
+
+- at least one val or var property in primary constructor
+- cannt be abstract, open, sealed or inner
+- equals() & hashCode()
+- toString() => "Human(name=Gildong, age=33)"
+- componentN() functions => destructuring & tuple
+- copy()
