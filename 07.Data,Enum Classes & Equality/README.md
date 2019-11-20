@@ -50,3 +50,23 @@
 - toString() => "Human(name=Gildong, age=33)"
 - componentN() functions => destructuring & tuple
 - copy()
+
+## 3. Equality & Identity
+
+#### 1. Equality
+
+- equals()에 (재)정의된 대로 동등성 판단, 보통 내용이 같으면 true
+- structural equality
+- a == b, a != b
+- a?.equals(b) ?: (b===null)
+
+#### 2. Identity
+
+- 동일, 주소까지도 같음
+- Referential equality
+- a === b, a !== b
+
+#### 3. data class DTO, not the VO
+
+- 코틀린의 data 클래스 객체들은 DTO라서 내용만 같다고 꼭 같은 객체로 보지는 않음
+- data class는 Equality 뿐만 아니라 Identity도 만족해야함

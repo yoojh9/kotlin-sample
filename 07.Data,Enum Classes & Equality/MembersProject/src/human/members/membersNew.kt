@@ -58,6 +58,41 @@ class MemberManager {
         }
         println("=".repeat(110))
     }
+
+
+    // 로그인 결과 상수 정의
+    private val LOGIN_SUCCESS: Int = 1
+    private val LOGIN_PASSWORD_MISMATCH: Int = 11
+    private val LOGIN_MEMBER_NOT_FOUND: Int = 13
+    private val LOGIN_NAME_EMPTY : Int = 15
+    private val LOGIN_PASSWORD_EMPTY : Int = 17
+
+
+    // 회원 로그인 인증 함수
+    fun loginMember(loginName: String, password: String): Int {
+        if(loginName.isEmpty() || loginName.isBlank()){
+            println("로그인 이름이 비워져 있음")
+            return LOGIN_NAME_EMPTY
+        }
+        if(password.isEmpty() || password.isBlank()) {
+            println("로그인 암호가 비워져 있음")
+            return LOGIN_PASSWORD_EMPTY
+        }
+
+        for(mb in this.memberList){
+            if(mb.loginName == loginName) { // 내용만 일치되면 OK
+                if(mb.password == password) {
+                    println("$loginName 회원님 인증 성공")
+                    return LOGIN_SUCCESS
+                } else {
+                    println("$loginName 회원님 암호 불일치")
+                    return LOGIN_PASSWORD_MISMATCH
+                }
+            }
+        }
+        println("$loginName 회원을 찾을 수 없음")
+        return LOGIN_MEMBER_NOT_FOUND
+    }
 }
 
 
