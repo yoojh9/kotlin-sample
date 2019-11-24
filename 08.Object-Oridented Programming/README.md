@@ -19,3 +19,17 @@ class MyOldCar {
 #### 2. by lazy
 
 - 게으른 초기화 (프로퍼티 위임 초기화)
+- val(immutable) 상수 property에 지정
+- property 초기화를 위한 위임(delegated) 블록을 지정하여 맨 처음 참조 시 단 한번의 초기화를 진행하는 방법
+- 맨 처음 참조 시에 값을 얻게 되므로, 깔끔하게 null 처리가 전혀 불필요 함
+
+```
+class MyOldCar {
+    var color: Int = 0xFF0000
+    var garage: String? = null
+    lateinit var name: String
+    val type by lazy { // 바로 실행되지 않음
+        "${color.toString(16) 색 SUV 중고차}
+    }
+}
+```
