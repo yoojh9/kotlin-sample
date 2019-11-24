@@ -13,8 +13,24 @@ data class MemberNew( var id: Int = 0,
                       var age: Int = 20,
                       var premiumLevel: Boolean = false,
                       var loginName: String = "guest",
-                      var password: String = "1234")
+                      var password: String = "1234",
+                      var ms: Membership =  Membership.BASIC)
 
+enum class Membership(var aPoint: Double = 0.0, val desc: String = "기본 회원 등급"){
+    BASIC, FAMILY(3000.0, "가족 회원 등급"),
+    PREMIUM(5000.0, "프리미엄 회원 등급"),
+    VIP(10000.0, "최고 회원 등급");   // ※ 세미콜론 넣어서 함수랑 분리해야 함
+
+    fun showCard(){
+        println("""
+            =============================================
+                ${this.name} Membership
+                $desc
+                point: $aPoint, ${this.ordinal+1} of ${Membership.values().size}
+            =============================================
+        """.trimIndent())
+    }
+}
 
 /**
  * 회원 데이터를 관리하는 클래스
@@ -95,6 +111,27 @@ class MemberManager {
     }
 }
 
+fun findMembership(ap: Double){
+    if( ap < 0.0) return
+    val ms: Membership = Membership.values().filter{ it.aPoint <= ap }.last()
+    println("$ap => $ms , ${ms.desc}")
+}
+
+fun findMembership(ap: Double, mb: MemberNew? = null){
+    if( ap < 0.0) return
+    val ms: Membership = Membership.values().filter{ it.aPoint <= ap }.last()
+    println("$ap => $ms , ${ms.desc}")
+
+    // let 안에서의 this는 mb 자체
+    // ?.는 safe call이므로  mb가 null일 때는 null pointer exception 에러도 아니고 함수가 실행되지도 않음
+    mb?.let {
+        it.activityPoints = ap
+        it.ms = ms
+        it.premiumLevel = (ms == Membership.PREMIUM || ms == Membership.VIP)
+        println("\n 회원 : $it \n")
+
+    }
+}
 
 fun main(args: Array<String>) {
 
@@ -138,4 +175,23 @@ fun main(args: Array<String>) {
     println()
     memberMgr.showAllMembers()
 
+    /**
+     * 7-4. enum
+     */
+    println()
+    Membership.values().forEach { it.showCard() }
+    println()
+    findMembership(3800.0)
+    findMembership(1400.0)
+    findMembership(500.0)
+    findMembership(5000.0)
+    findMembership(9999.0)
+    findMembership(10001.0)
+
+    println()
+    val mem1 = MemberNew(name = "앨리스", loginName = "alice")
+    println("${mem1.name}의 멤버십 ${mem1.ms}")
+    findMembership(3100.0, mem1)
+    findMembership(5500.0, mem1)
+    mem1.ms.showCard()
 }

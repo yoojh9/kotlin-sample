@@ -70,3 +70,25 @@
 
 - 코틀린의 data 클래스 객체들은 DTO라서 내용만 같다고 꼭 같은 객체로 보지는 않음
 - data class는 Equality 뿐만 아니라 Identity도 만족해야함
+
+## 4. Enum Class
+
+#### 1. enumeration
+
+- 열거형; 정의된 범주의 상수만 해당 열거형 데이터로 지정가능
+
+#### 2. enum class
+
+- enum constant, object with initialized property
+- 각각의 enum 상수는 오브젝트이다
+- enum class 는 프로퍼티를 가질 수 있다
+
+```
+enum class Weekdays(val kr: String){
+    SUN("일"), MON("월"), TUE("화"), WED("수"), THU("목"), FRI("금"), SAT("토")
+}
+```
+
+- each enum.name, each enum.ordinal
+- EnumClass.valueOf(value: String): EnumClass
+- EnumClass.values(): Array<EnumClass>
