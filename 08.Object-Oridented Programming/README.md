@@ -33,3 +33,18 @@ class MyOldCar {
     }
 }
 ```
+
+## 2. Abstract Class & Method
+
+#### 1. abstract method
+
+- 추상 메소드, no body, 구현체 코드가 없음
+- 구현되지 않고 원형 선언
+- (function prototype)만 존재하는 멤버 함수
+
+#### 2. abstract class
+
+- 하나 이상의 추상 메소드를 가지는 클래스, 상속용으로 설계
+- constructor를 정의할 수 있어도 호출하지 못하여 인스턴스(instantiation)화 할 수 없음
+- 자신이나 부모, 조상 클래스(들) 혹은 모든 상속한 인터페이스(들)의 추상 메소드를 남김없이 override 구현(implementation)하지 못하면 abstract로 남아 있게됨
+- 주로 derived classes를 위한 공통 base class로 사용되며, top-down 설계에 유용함
