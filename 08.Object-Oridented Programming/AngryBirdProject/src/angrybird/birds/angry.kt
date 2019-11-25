@@ -77,7 +77,53 @@ class Red(_name: String): Flock(){
         println("\t >> 입힌 총 대미지: ${java.lang.String.format("%.2f", getDamage())} 점")
         this.status = Status.CRASHED
     }
+}
 
+class Blues(_name: String): Flock(), Splitter {
+    init {
+        super.name = _name
+        super.power = 8.0
+        status = Status.NONE
+    }
+
+    override val color: Color = Color.RED
+
+    override val weight: Double = 1.3
+
+    override val type: String = "Blues"
+
+    // interface Splitter 재정의
+    override fun splitBirds(){
+        println("\t >> 짐, 제이크, 제이 세마리 새들로 분리되어 날아간다")
+    }
+
+    // interface Splitter 재정의
+    override fun splitDamage(vararg birds: String){
+        for(bird in birds){
+            println("\t >> '${bird}'가 장애물에 부딪혀 충격을 주다 ")
+            println("\t >> 입힌 총 대미지: ${java.lang.String.format("%.2f", getDamage())} 점")
+        }
+    }
+
+    // Flock() 재정의
+    override fun flyAfterShoot() {
+        println("step3: ${this}가 공중으로 날아가다.")
+        splitBirds()
+        this.status = Status.FLYING
+    }
+
+    // Flock() 재정의
+    override fun crashWithDamage() {
+        println("step4: ${this}")
+        splitDamage("Jim Blue새","Jake Blue새", "Jay Blue새")
+        this.status = Status.CRASHED
+    }
+
+}
+
+interface Splitter {
+    fun splitBirds()
+    fun splitDamage(vararg birds: String)
 }
 
 fun main() {
@@ -89,7 +135,9 @@ fun main() {
 //    bird1.crashWithDamage()
 //    bird1.landingForEnd()
 
-    // val bird2 = Flock() // err: 추상 클래스의 인스턴스는 생성할 수 없다.
+//    val bird2 = Flock() // err: 추상 클래스는 생성자가 있지만 호출할 음수는 없다. 인스턴스를 생성할 수 없다.
+//    var t = Splitter()  // err: 인터페이스는 생성자가 없음
+
     println()
     listOf<Red>(Red("길동"), Red("영희"), Red("꺽정")).forEach{
         it.readyForShoot()
@@ -97,5 +145,16 @@ fun main() {
         it.flyAfterShoot()
         it.crashWithDamage()
         it.landingForEnd()
+    }
+
+    listOf<Blues>(Blues("철수"), Blues("안나"), Blues("대신"))
+        .forEach{
+            with(it){
+                readyForShoot()
+                adjustAngleLength()
+                flyAfterShoot()
+                crashWithDamage()
+                landingForEnd()
+            }
     }
 }

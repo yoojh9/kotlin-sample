@@ -48,3 +48,20 @@ class MyOldCar {
 - constructor를 정의할 수 있어도 호출하지 못하여 인스턴스(instantiation)화 할 수 없음
 - 자신이나 부모, 조상 클래스(들) 혹은 모든 상속한 인터페이스(들)의 추상 메소드를 남김없이 override 구현(implementation)하지 못하면 abstract로 남아 있게됨
 - 주로 derived classes를 위한 공통 base class로 사용되며, top-down 설계에 유용함
+
+## 3. INTERFACE
+
+#### 1. interface
+
+- 일종의 공통 규약, 프로토콜, 직계 상속으로는 물려 받을 수 없는 다양한 기능들을 확장할 수 있는 방법
+  - 기본적으로 모든 함수가 추상 메소드 (public open); 생성자 없음
+  - 인터페이스에서 공통으로 늘 사용되는 코드는 기본 바디를 갖춘 구체화 함수로서 구현될 수 있음
+  - 상태를 가질 수는 없지만 getter 프로퍼티는 가질 수 있음
+  - 클래스는 단일 상속만, 인터페이스는 다중 상속도 지원함
+
+```
+    open class A; open class B{} open class C{}
+    interface D interface E interface F:D,E
+    class Z: A(), B(), C(), D, E //error
+    class Z: A(), D, E
+```
