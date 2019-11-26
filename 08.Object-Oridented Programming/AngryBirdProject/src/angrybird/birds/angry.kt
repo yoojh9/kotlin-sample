@@ -79,6 +79,53 @@ class Red(_name: String): Flock(){
     }
 }
 
+interface AcceleratorI {
+    /**
+     * Backing Field
+      - 자바에서는 static 상수가 인터페이스에 존재함.
+      - 코틀린은 상태를 가질 수 없는 필드를 둘 수 있음
+      - getter는 구현할 수 있음
+     */
+
+    val MORE_POWER_WEIGHT   // = 3  // err
+        get() = Math.random() * 10 + 1.0    // 불리는 순간에 계산되는 식
+    fun accelatorSpeed()
+}
+
+class Chuck(_name: String): Flock(), AcceleratorI {
+    init {
+        super.name = _name
+        power = 9.0
+        status = Status.NONE
+    }
+
+    override val color: Color = Color.YELLOW
+    override val weight: Double = 1.2
+    override val type: String = "Chuck"
+
+    // from Flock
+    override fun flyAfterShoot() {
+        println("step3: ${this}가 공중으로 날아가다.")
+        accelatorSpeed()    // Chuck 새의 고유 기능 호출
+        this.status = Status.FLYING
+    }
+
+    // from Flock
+    override fun crashWithDamage() {
+        println("step4: ${this}가 장애물에 부딪혀 충격을 주다.")
+        println("\t >> 입힌 총 대미지: ${java.lang.String.format("%.2f", getDamage())} 점")
+        this.status = Status.CRASHED
+    }
+
+    // Chuck 새의 고유 기능 from AcceleratorI
+    override fun accelatorSpeed() {
+        println("\t>> ${this}가 비행 가속도를 받기 전 파워 $power")
+        this.power += MORE_POWER_WEIGHT * power
+        println("\t>> ${this}가 비행 가속도를 받아서 파워가 ${String.format("%.2f", power)}로 증가하다")
+    }
+}
+
+
 class Blues(_name: String): Flock(), Splitter {
     init {
         super.name = _name
@@ -148,6 +195,17 @@ fun main() {
     }
 
     listOf<Blues>(Blues("철수"), Blues("안나"), Blues("대신"))
+        .forEach{
+            with(it){
+                readyForShoot()
+                adjustAngleLength()
+                flyAfterShoot()
+                crashWithDamage()
+                landingForEnd()
+            }
+    }
+
+    listOf<Chuck>(Chuck("John"), Chuck("Elle"), Chuck("Mike"))
         .forEach{
             with(it){
                 readyForShoot()

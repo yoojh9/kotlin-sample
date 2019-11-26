@@ -65,3 +65,29 @@ class MyOldCar {
     class Z: A(), B(), C(), D, E //error
     class Z: A(), D, E
 ```
+
+## 4. Polymorphism
+
+#### 1. polymorphism
+
+- 다형성
+- 흔히 배열/컬렉션과 같이 사용되며, 동일한 구조(루프/함수 호출/인자 및 리턴 타입 등)에서 여러가지 내용을 가진 객체들을 사용할 수 있음 => 내용과 구조가 분리된 방식
+- 함수 오버로딩, 상속(추상) 클래스 다형성, 인터페이스 다형성
+
+#### 2. kotlin.Any 클래스 기본 다형성
+
+- 최상위 타입으로 모든 타입의 상속 다형성을 부여함
+  ```
+  listOf<Flock>(Red("길동"), Red("영희"),
+      Blues("안나"), Blues("대산"),
+      Chuck("Elle"), Chuck("Mike"))
+      .forEach {
+          with(it) {
+              readyForShoot() // Flock
+              adjustAngleLength() // Flock
+              flyAfterShoot() // 각 하위 클래스마다 고유하게 재정의된 함수가 호출 override 된게 먼저 우선
+              crashWithDamage() // 각 하위 클래스마다 고유하게 재정의된 함수가 호출 override 된게 먼저 우선
+              landingForEnd() // Flock
+          }
+      }
+  ```
