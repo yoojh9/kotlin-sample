@@ -91,3 +91,29 @@ class MyOldCar {
           }
       }
   ```
+
+## 5. Nested & Inner Classes
+
+#### 1. nested class
+
+- 외부 클래스 안쪽에 중첩된 클래스, 거의 패키지 수준
+
+#### 2. inner class
+
+- 중첩되었으나 하나의 내부 멤버로써 정의된 클래스
+- 외부 클래스의 보이는 모든 자원(상속 계보 포함)들을 접근할 수 있음
+
+  ```
+  class OuterA {
+      class NestedB {
+
+      }
+      inner class innerC {
+          // OuterA 외부 클래스의 보이는 모든 자원(상속 계보 포함)들을 접근할 수 있음
+      }
+  }
+  ```
+
+#### 3. super@
+
+- inner 내부 클래스에서는 super@OuterA.xyz 외부 클래스의 이름을 레이블로 하여 outer 클래스의 super의 프로퍼티와 메소드를 접근할 수 있음

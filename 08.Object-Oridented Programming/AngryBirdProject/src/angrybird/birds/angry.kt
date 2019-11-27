@@ -61,7 +61,7 @@ abstract class Flock {
     }
 }
 
-class Red(_name: String): Flock(){
+open class Red(_name: String): Flock(){
 
     init{
         super.name = _name
@@ -83,7 +83,7 @@ interface AcceleratorI {
     /**
      * Backing Field
       - 자바에서는 static 상수가 인터페이스에 존재함.
-      - 코틀린은 상태를 가질 수 없는 필드를 둘 수 있음
+      - 코틀린은 상태를 set 할 수 없는 필드를 둘 수 있음
       - getter는 구현할 수 있음
      */
 
