@@ -133,7 +133,7 @@ class MyOldCar {
 - Factory 패턴 구현
   ```
    class Product(val id: Int){
-       companion object Factory { // Factory 이름 생략 가능
+       companion object Factory { // Factory 이름 생략 가능(companion으로만)
         fun makeOne(id: Int): Product = Product(id)
        }
    }
