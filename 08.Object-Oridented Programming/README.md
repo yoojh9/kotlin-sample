@@ -117,3 +117,25 @@ class MyOldCar {
 #### 3. super@
 
 - inner 내부 클래스에서는 super@OuterA.xyz 외부 클래스의 이름을 레이블로 하여 outer 클래스의 super의 프로퍼티와 메소드를 접근할 수 있음
+
+## 6. Object Declaration & Companion Object
+
+#### 1. Object declaration
+
+- only one instance available; single object as itself
+- singleton 패턴 구현
+- 오브젝트를 정의하여 선언하면, 추후 처음 사용될 때 초기화(lazily)되며, 단독 인스턴스 객체처럼 동작함 => Singleton 패턴 구현(일종의 Director 객체임)
+
+#### 2. Companion Object
+
+- object declaration inside a class
+- Java static 함수 정의에 대응(똑같지 않음)
+- Factory 패턴 구현
+  ```
+   class Product(val id: Int){
+       companion object Factory { // Factory 이름 생략 가능
+        fun makeOne(id: Int): Product = Product(id)
+       }
+   }
+   val pr1 = Product.makeOne(1)
+  ```
