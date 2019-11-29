@@ -139,3 +139,19 @@ class MyOldCar {
    }
    val pr1 = Product.makeOne(1)
   ```
+
+## 7. Sealed class & Type alias
+
+#### 1. Sealed class
+
+- extended enum, 열겨형의 확장된 형태
+- 제한된 계층 하위 클래스만 가질 수 있도록 봉인해준다.
+- 실드된 범위, 즉 제한된 클래스 계층 타입들(constrained type hierachy)의 객체로만 표현할 수 있도록 해줌
+- when() 분기문에서 실드 클래스형 인자에 대해 모든 가능한 하위 타입들에 대한 분기 체크를 진행함(모든 하위 클래스 체크시, else 분기 불필요)
+- sealed된 하위 클래스는 중첩된 내부 클래스 형태나 같은 파일의 패키지 수준에서만 정의될 수 있음(아니면 컴파일 에러가 발생됨)
+- 상태를 가지는 object도 실드 타입의 하위 멤버가 될 수 있음
+
+#### 2. typealias
+
+- 타입 ABC를 타입 X라고 흔히 단축형의 다른 이름(별명 alias)을 지정하여 사용하는 것
+- typealias Cal = abc.my.Calculator
