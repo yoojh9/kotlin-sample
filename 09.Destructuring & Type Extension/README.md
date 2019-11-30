@@ -32,3 +32,28 @@
 #### 6. underscore '\_' as unused destructured variable
 
 - (_,b,_) = getData()
+
+## 2. Extenstion Functions
+
+#### 1. Extenstion
+
+- adding functions or properties to class without any inheritance, with dot notation callable
+- 클래스로 대변되는 타입에 상속 관계 없이 함수나 프로퍼티를 추가함.
+
+#### 2. Extension Function
+
+    ```
+    // 확장함수
+    fun ReceiverType.FunctionName(params...){
+        this // receiver object
+    }
+
+    // 이 함수를 마치 이 함수의 멤버 함수인 것처럼 .으로 호출할 수 있음
+    ReceiverType().FunctionName(abc) // extension function call
+    ```
+
+- extension functions are dispatched statically, not virtual by receiber type(no inheritance relationship)
+  ```
+  fun Byte.toUnsignedInt() = toInt() and 0xFF
+  fun charRange.toS(): String = this.toList().joinToString("")
+  ```
