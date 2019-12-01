@@ -31,7 +31,7 @@
 
 #### 6. underscore '\_' as unused destructured variable
 
-- (_,b,_) = getData()
+- (\_,b,\_) = getData()
 
 ## 2. Extenstion Functions
 
