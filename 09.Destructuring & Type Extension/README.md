@@ -57,3 +57,19 @@
   fun Byte.toUnsignedInt() = toInt() and 0xFF
   fun charRange.toS(): String = this.toList().joinToString("")
   ```
+
+## 3. Extension Properties
+
+#### 1. Extension Properties
+
+- not actually define any member property into class (클래스에 멤버 프로퍼티를 추가하는 건 아님)
+- initializer (with status) are not allowed (no backing field)
+  ```
+  val<T> List<T>.lastIndex:Int get() = size - 1
+  // Length
+  val Double.mm get() = 1000 * this
+  val Double.cm get() = 1000 * this
+  val Double.m get() = 1 * this
+  val Double.km get() = 0.001 * this
+  val Double.inch get() = 39.370079 * this
+  ```
