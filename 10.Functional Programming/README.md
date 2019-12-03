@@ -36,5 +36,41 @@
   - fun(param: type, ...){...}
 - Lambda Expression (Block): 람다 식(블록)
   )
+
   - { argument(s) -> code block as the function body}
-  - { param: type, param: type, ... -> code block}
+  - { param: type, param: type, ... -> code}
+
+## 2. Function Reference, Import as & Single Lambda Argument, It
+
+#### 1. Single Lambda Argument, it:
+
+- only one parameter for lambda expression(문맥에서 유추/추론)
+- 람다 파라미터 정의를 생략하고 그냥 it 키워드로 인자를 사용
+- 함수형으로 유명한 LINQ style로 표현, readability 향상
+  ```
+     listOf("aaa","bbbb","ccccc","dddddd")
+         .filter{it.length >= 5} // str: String -> str..
+         .map{it.toUpperCase()}  // s -> s...
+  ```
+
+#### 2. Function Reference
+
+- 일종의 reflection, 함수 자체의 이름으로 함수 바디를 객체로써 참조함
+  ```
+  fun myFunName(p: Type): Boolean = ...
+  myList.filter{myFunName(it)}
+  myList.filter(::myFunName) // 함수 body 자체를 파라미터로 참조
+  ```
+
+#### 3. Method Reference
+
+- 클래스 수준의 멤버 함수일 경우에는
+- ClassName::FunctionName; String::isNotEmpty
+
+#### 4. import as
+
+- for name collision, locally rename that as another one
+  ```
+  import my.Name // Name is accessible
+  import your.Name as yName // yName is accessible for other Name type
+  ```
