@@ -74,3 +74,52 @@
   import my.Name // Name is accessible
   import your.Name as yName // yName is accessible for other Name type
   ```
+
+## 3. SAM, 익명객체식(@FunctionalInterface, anonymous obj)
+
+#### 1. Java SAM Functional Interface & Anonymous Object Expression
+
+- object expression of anonyous class
+- Java Single Abstract Method Function Interface
+
+#### 2. anonymous object expression: 오브젝트 식 <=> 오브젝트 선언(declaration)
+
+- 클래스, 인터페이스 등을 상속받거나 받지 않더라도 익명의 (내부) 클래스의 객체를 생성함
+
+  ```
+  val o1 = obejct {
+      val a: Int = 0
+      var b = "string"
+  }
+
+  val o2: C = object: Class(1).interface {
+      override val propClass = "xyz"
+      override fun getInterface() = ...
+  }
+  ```
+
+#### 3. Java SAM FI(Functional Interface)
+
+- 인터페이스를 통해 함수형 람다식을 처리할 수 있음
+- @FunctionalInterface 어노테이션을 적용함
+- 오직 하나의 추상 메소드(SAM: Single Abtract Method)만 가진 인터페이스
+
+      ```
+      @FunctionalInterface
+      public interface Comparator<T>
+      ```
+
+- 코틀린에서는 Java SAM FI는 익명 객체(object exp.)
+  나 람다식(lambda)으로 축약 표현이 가능함
+
+      ```
+      val obj1 = object: JavaSAMFI{...}
+      val obj2 = JavaSAMFI { it?.xxx }
+      ```
+
+#### 4. java.util.function 패키지
+
+- T get() - 함수 생산 Supply, Produce
+- void accept(T t) - 함수 소비 Consume
+- R apply(T t) - 함수 적용 T => R 변환(Function<T,R>) Apply
+- boolean test(T t) - 조건식 함수 콜백, Predicate
