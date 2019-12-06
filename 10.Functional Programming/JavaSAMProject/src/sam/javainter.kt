@@ -51,4 +51,58 @@ fun main() {
         }
     }
     sort(numbers, objComparable)
+
+    // custom SAM
+    val objCountJava = object: MyCountable {
+        override fun myCount(list: MutableList<Int>?): Int {
+            return list?.size ?: 0
+        }
+    }
+
+    // val objCountJava2 =  MyCountable { list -> list?.size ?: 0 }
+    val objCountJava2 =  MyCountable { it?.size ?: 0 } // SAM 축약 표현
+    println("java SAMFI objCountJava.myCount(null) = ${objCountJava.myCount(null)}")
+    println("java SAMFI objCountJava.myCount(numbers) = ${objCountJava.myCount(numbers)}")
+
+    // 코틀린에서 만든 interface with one abstract function은 SAM이 아니므로 축약이 되지 않음
+    val objCountKt = object: MyCountableKt {
+        override fun myCount(list: List<Int>): Int {
+            return list.size
+        }
+    }
+    //val objCountKt2 = MyCountableKt { list: List<Int> -> list.size }
+    //val objCountKt3 = MyCountableKt { it.size }
+
+    /**
+     * typealias
+     */
+    val objCountTypeAlias: MyCountableTypeAlias = object : MyCountableTypeAlias {
+        override fun invoke(p1: MutableList<Int>): Int {
+            return p1.size
+        }
+    }
+
+    println("objCountTypeAlias.invoke() = ${objCountTypeAlias.invoke(numbers)}")
+    println("objCountTypeAlias() = ${objCountTypeAlias(numbers)}")
+
+    // 람다
+    val objCountTypeAliasLambda: MyCountableTypeAlias = {
+        list: MutableList<Int> -> list.size
+    }
+
+    // 익명함수
+    val objCountTypeAliasAnony = fun(list: MutableList<Int>) = list.size
+
+    val mcList: List<MyCountableTypeAlias> = listOf(objCountTypeAlias, objCountTypeAliasLambda, objCountTypeAliasAnony)
+    mcList.map { it(numbers) }.forEach(::println)
 }
+
+// 이건 코틀린에서 만든 것이므로 SAM이 아님
+interface MyCountableKt {
+    fun myCount(list: List<Int>): Int
+}
+
+/**
+ * invoke라는 abstract method를 가지고 있는 인터페이스
+ */
+typealias MyCountableTypeAlias = (MutableList<Int>) -> Int
