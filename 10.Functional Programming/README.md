@@ -117,6 +117,9 @@
       val obj2 = JavaSAMFI { it?.xxx }
       ```
 
+- java.lang 패키지: interface Runnable {void run(); }
+- java.util 패키지 : interface Comparator<T> { boolean compare(T x, T y); } - 객체 비교 comparison
+
 #### 4. java.util.function 패키지
 
 - T get() - 함수 생산 Supply, Produce
