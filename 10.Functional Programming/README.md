@@ -126,3 +126,17 @@
 - void accept(T t) - 함수 소비 Consume
 - R apply(T t) - 함수 적용 T => R 변환(Function<T,R>) Apply
 - boolean test(T t) - 조건식 함수 콜백, Predicate
+
+## 4. Currying & Partial Appication
+
+#### 1. Currying
+
+- 커링, 여러개의 인자를 가진 함수를 호출 할 경우, 한 개의 인자를 받는 연속적인 호출들을 통해서 누락된 모든 파라미터들을 처리하는 함수형 방식
+  - f:(X,Y,Z) -> N curried into curry(f):X -> ( Y -> ( Z -> N ))
+    - f(1,2) === g(1)(2)
+
+#### 2. Partial Application
+
+- 커링과 비슷하지만 인자를 바인딩하여 재사용 하고자 하는 용도의 함수형 방식
+  - 인자의 일부분이 curry된 함수를 통해 독립적인 '부분기능'들을 만들어 놓고 조립 하듯이 사용할 수 있음
+  - f:(X,Y,Z) -> N partially applied to (with X binding)
