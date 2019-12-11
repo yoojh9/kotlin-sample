@@ -140,3 +140,26 @@
 - 커링과 비슷하지만 인자를 바인딩하여 재사용 하고자 하는 용도의 함수형 방식
   - 인자의 일부분이 curry된 함수를 통해 독립적인 '부분기능'들을 만들어 놓고 조립 하듯이 사용할 수 있음
   - f:(X,Y,Z) -> N partially applied to (with X binding)
+
+## 5. Closure & Scope Functions
+
+#### 1. Closure, Functors & FP Stdlib Functions
+
+- closure; let()
+- functor; map()
+- stdlib functions: run(), with(), apply(), also()
+
+- Closures: 클로져; variables(or context) d`eclared in the outer scope, when the lambda expression or anonymous function defined
+  - Unlike Java, variable captured in the closure can be modified; not final
+- Functor: 펑터; something can be mapped over, mappable object; iteration over with map(); Array, List
+  - Identity: z.map(x => x) is equivalent to z
+  - Composition: z.map(x => f(g(x))) is equivalent to z.map(g).map(f)
+
+| 함수명      | 설명              | 타입                                                                            | T 전달방식  | 리턴             |
+| ----------- | ----------------- | ------------------------------------------------------------------------------- | ----------- | ---------------- |
+| **let()**   | extension         | T 타입 객체 자신을 it으로 블록에 던져줌                                         | it          | last block value |
+| **map()**   | extension         | functor를 위한 iteration 맵핑 T => R 적용                                       | mappable it | mapped List<R>   |
+| **with()**  | normal            | this 문맥 하에 T 객체의 멤버 사용(설정)                                         | this        | last block value |
+| **apply()** | extension         | this 문맥 하에 T 객체의 멤버 사용(설정) 후 T를 되돌려 줌 <br> builder 패턴 적용 | this        | T                |
+| **run()**   | extension <br> \* | let() + with()의 조합과 흡사함                                                  | this        | last block value |
+| **also()**  | extension         | T 타입 객체 자신을 it으로 블록에 던져주고 다시 T를 되돌려줌                     | it          | T                |
