@@ -155,11 +155,11 @@
   - Identity: z.map(x => x) is equivalent to z
   - Composition: z.map(x => f(g(x))) is equivalent to z.map(g).map(f)
 
-| 함수명      | 설명              | 타입                                                                            | T 전달방식  | 리턴             |
-| ----------- | ----------------- | ------------------------------------------------------------------------------- | ----------- | ---------------- |
-| **let()**   | extension         | T 타입 객체 자신을 it으로 블록에 던져줌                                         | it          | last block value |
-| **map()**   | extension         | functor를 위한 iteration 맵핑 T => R 적용                                       | mappable it | mapped List<R>   |
-| **with()**  | normal            | this 문맥 하에 T 객체의 멤버 사용(설정)                                         | this        | last block value |
-| **apply()** | extension         | this 문맥 하에 T 객체의 멤버 사용(설정) 후 T를 되돌려 줌 <br> builder 패턴 적용 | this        | T                |
-| **run()**   | extension <br> \* | let() + with()의 조합과 흡사함                                                  | this        | last block value |
-| **also()**  | extension         | T 타입 객체 자신을 it으로 블록에 던져주고 다시 T를 되돌려줌                     | it          | T                |
+| 함수명      | 설명      | 타입                                                                            | T 전달방식  | 리턴             |
+| ----------- | --------- | ------------------------------------------------------------------------------- | ----------- | ---------------- |
+| **let()**   | extension | T 타입 객체 자신을 it으로 블록에 던져줌                                         | it          | last block value |
+| **map()**   | extension | functor를 위한 iteration 맵핑 T => R 적용                                       | mappable it | mapped List<R>   |
+| **with()**  | normal    | this 문맥 하에 T 객체의 멤버 사용(설정)                                         | this        | last block value |
+| **apply()** | extension | this 문맥 하에 T 객체의 멤버 사용(설정) 후 T를 되돌려 줌 <br> builder 패턴 적용 | this        | T                |
+| **run()**   | extension | let() + with()의 조합과 흡사함                                                  | this        | last block value |
+| **also()**  | extension | T 타입 객체 자신을 it으로 블록에 던져주고 다시 T를 되돌려줌                     | it          | T                |
